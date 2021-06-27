@@ -1,12 +1,15 @@
 // Select color input
 const colorPicker = document.querySelector('#colorPicker');
 
-
-
 // Select size input
 const sizePicker = document.getElementById('sizePicker');
 
 const canvas = document.getElementById('pixelCanvas');
+
+
+
+
+
 
 
 //Event listener for submit button
@@ -33,6 +36,21 @@ sizePicker.addEventListener('submit', function makeGrid(e) {
 
 });
 
+
+//Check for user values within limits
+sizePicker.addEventListener('input', function (e){
+	const canvasHeight = document.getElementById('inputHeight');
+	const canvasWidth = document.getElementById('inputWidth');
+	if (Number(canvasHeight.value) > 30){
+		canvasHeight.value = '30';
+	}
+
+	if (Number(canvasWidth.value) > 50){
+		canvasWidth.value = '50';
+		canvasWidth.style.backgroundColor = " lightgreen";
+	}
+
+});
 
 
 console.log(canvas);
