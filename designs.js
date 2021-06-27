@@ -1,3 +1,6 @@
+//tariqras  udacity-intro-to-programming nanodegree  pixel art maker  2021JUNE26
+
+
 // Select color input
 const colorPicker = document.querySelector('#colorPicker');
 
@@ -6,11 +9,14 @@ const sizePicker = document.getElementById('sizePicker');
 
 const canvas = document.getElementById('pixelCanvas');
 
+//Default color is black
+var myColor = '#000000';
 
 
-
-
-
+//Event listener for color picker
+colorPicker.addEventListener('input', function changeColor(e) {
+	myColor = colorPicker.value;
+} );
 
 //Event listener for submit button
 sizePicker.addEventListener('submit', function makeGrid(e) {
@@ -36,7 +42,6 @@ sizePicker.addEventListener('submit', function makeGrid(e) {
 
 });
 
-
 //Check for user values within limits
 sizePicker.addEventListener('input', function (e){
 	const canvasHeight = document.getElementById('inputHeight');
@@ -47,10 +52,11 @@ sizePicker.addEventListener('input', function (e){
 
 	if (Number(canvasWidth.value) > 50){
 		canvasWidth.value = '50';
-		canvasWidth.style.backgroundColor = " lightgreen";
 	}
 
+	e.preventDefault();
 });
+
 
 
 console.log(canvas);
